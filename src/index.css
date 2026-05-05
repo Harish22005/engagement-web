@@ -14,14 +14,49 @@
 
 @layer base {
   body {
-    @apply bg-blush text-gray-800 font-sans antialiased overflow-x-hidden;
+    @apply bg-blush text-gray-800 font-sans antialiased overflow-x-hidden selection:bg-rosegold/30 selection:text-rosegold;
   }
 }
 
 .glass-card {
-  @apply bg-white/40 backdrop-blur-md border border-white/50 shadow-xl;
+  @apply bg-white/50 backdrop-blur-xl border border-white/70 shadow-[0_8px_32px_rgba(183,110,121,0.15)] relative overflow-hidden;
+}
+
+.glass-card::before {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-br from-white/80 to-transparent opacity-40 rounded-[inherit] pointer-events-none;
+}
+
+.curtain-panel {
+  background-color: #61000b;
+  background-image: linear-gradient(
+    90deg, 
+    rgba(0,0,0,0.6) 0%, 
+    rgba(255,255,255,0.05) 25%, 
+    rgba(0,0,0,0.5) 50%, 
+    rgba(255,255,255,0.05) 75%, 
+    rgba(0,0,0,0.6) 100%
+  );
+  background-size: 100px 100%;
+  box-shadow: inset 0 0 50px rgba(0,0,0,0.5);
 }
 
 .polaroid {
   @apply bg-white p-3 shadow-xl rounded-sm transition-transform duration-500 hover:z-10 hover:scale-105;
+}
+
+@keyframes blob {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+.animate-blob {
+  animation: blob 12s infinite ease-in-out alternate;
+}
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+.animation-delay-4000 {
+  animation-delay: 4s;
 }

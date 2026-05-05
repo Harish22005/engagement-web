@@ -40,7 +40,14 @@ export const i18n = {
     msgBlessings4: "A Match Made in Heaven ✨",
     message: "With love and joy, we invite you to celebrate our engagement and begin our forever journey together.",
     playMusic: "Play Music",
-    pauseMusic: "Pause Music"
+    pauseMusic: "Pause Music",
+    sendWishesTitle: "Send Your Wishes",
+    wishNameEmpty: "Please enter your name",
+    wishMsgEmpty: "Please write a message",
+    wishSubmit: "Send Love 💌",
+    wishSuccess: "Thank you for your beautiful wishes! ❤️",
+    wishNameLabel: "Your Name",
+    wishMsgLabel: "Your Message"
   },
   ta: {
     intro1: "இரு மனங்கள்...",
@@ -81,6 +88,13 @@ export const i18n = {
     msgBlessings4: "சொர்க்கத்தில் நிச்சயிக்கப்பட்ட பந்தம் ✨",
     message: "எங்கள் நிச்சயதார்த்த விழாவிற்கு வருகை தந்து எங்களை சிறப்பிக்குமாறு அன்புடன் அழைக்கிறோம்.",
     playMusic: "இசையை இயக்கு",
-    pauseMusic: "இசையை இடைநிறுத்து"
+    pauseMusic: "இசையை இடைநிறுத்து",
+    sendWishesTitle: "உங்கள் வாழ்த்துக்கள்",
+    wishNameEmpty: "உங்கள் பெயரை உள்ளிடவும்",
+    wishMsgEmpty: "உங்கள் வாழ்த்தை எழுதவும்",
+    wishSubmit: "வாழ்த்துகளை அனுப்பு 💌",
+    wishSuccess: "உங்கள் அன்பான வாழ்த்துக்களுக்கு நன்றி! ❤️",
+    wishNameLabel: "உங்கள் பெயர்",
+    wishMsgLabel: "உங்கள் வாழ்த்து"
   }
 }

@@ -1,11 +1,12 @@
 import { motion } from "motion/react";
 
-export function Blessings({ lang }: { lang: any }) {
+export function Blessings({ lang, customWishes = [] }: { lang: any, customWishes?: string[] }) {
   const msgs = [
     lang.msgBlessings1,
     lang.msgBlessings2,
     lang.msgBlessings3,
     lang.msgBlessings4,
+    ...customWishes
   ];
 
   return (

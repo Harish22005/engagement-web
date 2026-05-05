@@ -23,9 +23,10 @@ export function Story({ lang }: { lang: any }) {
     <section className="py-24 px-6 relative bg-white/50">
       <div className="max-w-4xl mx-auto">
         <motion.h2 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          initial={{ opacity: 0, y: 30, filter: "blur(10px)", scale: 0.95 }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)", scale: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           className="text-4xl md:text-6xl font-script text-center text-rosegold mb-16"
         >
           {lang.ourStory}
@@ -33,35 +34,49 @@ export function Story({ lang }: { lang: any }) {
 
         <div className="relative">
           {/* Vertical Line */}
-          <div className="absolute left-4 md:left-1/2 w-0.5 h-full bg-rosegold/30 -translate-x-1/2" />
+          <motion.div 
+            initial={{ height: 0 }}
+            whileInView={{ height: "100%" }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 2.5, ease: "easeInOut" }}
+            className="absolute left-4 md:left-1/2 w-0.5 bg-rosegold/30 -translate-x-1/2 origin-top" 
+          />
 
           {events.map((event, i) => (
-            <motion.div 
+            <div 
               key={i}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8, delay: i * 0.2 }}
               className={`flex flex-col md:flex-row items-center justify-between mb-16 last:mb-0 ${i % 2 === 0 ? 'md:flex-row-reverse' : ''}`}
             >
               {/* Spacer for alternate layout on desktop */}
               <div className="hidden md:block md:w-5/12" />
 
               {/* Center Node */}
-              <div className="absolute left-4 md:left-1/2 w-10 h-10 rounded-full bg-white border-4 border-rosegold -translate-x-1/2 flex items-center justify-center text-xl z-10 shadow-lg">
+              <motion.div 
+                initial={{ scale: 0, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                viewport={{ once: true, margin: "-200px" }}
+                transition={{ duration: 0.6, delay: 0.3, type: "spring", stiffness: 200, damping: 15 }}
+                className="absolute left-4 md:left-1/2 w-10 h-10 rounded-full bg-white border-4 border-rosegold -translate-x-1/2 flex items-center justify-center text-xl z-10 shadow-[0_0_15px_rgba(183,110,121,0.3)]"
+              >
                 {event.icon}
-              </div>
+              </motion.div>
 
               {/* Content */}
-              <div className="w-full pl-12 md:pl-0 md:w-5/12">
+              <motion.div 
+                initial={{ opacity: 0, y: 40, filter: "blur(10px)", x: i % 2 === 0 ? 30 : -30 }}
+                whileInView={{ opacity: 1, y: 0, filter: "blur(0px)", x: 0 }}
+                viewport={{ once: true, margin: "-150px" }}
+                transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                className="w-full pl-12 md:pl-0 md:w-5/12"
+              >
                 <div className="glass-card p-6 rounded-2xl">
                   <h3 className="text-2xl font-serif text-gold font-semibold mb-2">{event.title}</h3>
                   <p className="text-gray-600 font-sans leading-relaxed">
                     {event.desc}
                   </p>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </div>
           ))}
         </div>
       </div>

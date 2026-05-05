@@ -9,9 +9,10 @@ export function Footer({ lang }: { lang: any }) {
   return (
     <footer className="py-16 text-center space-y-8 bg-blush relative z-10">
       <motion.p 
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
+        initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+        whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
         className="max-w-2xl mx-auto px-6 font-serif text-xl md:text-3xl text-rosegold leading-relaxed"
       >
         "{lang.message}"
